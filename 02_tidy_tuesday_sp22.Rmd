@@ -51,10 +51,31 @@ illiteracy <- readr::read_csv("https://raw.githubusercontent.com/ajstarks/dubois
 illiteracy %>% 
   ggplot(aes(x = `Date`, y = `Iliteracy Rate`))+
   geom_bar(stat = "identity", width = 2, fill = "black")+
-  labs(title =  "ILLITERACY", x = "PERCENT OF ILLITERACY", y = NULL)+
+  labs(title =  "ILLITERACY", y = "PERCENT OF\n ILLITERACY", x = NULL)+
   theme(aspect.ratio = 4/3,
-        plot.title = element_text(hjust = 0.5,
-                                  face = "bold"))
+        plot.title = element_text(size = 9,
+                                  hjust = 0.5,
+                                  face = "bold",
+                                  family = "Helvetica"),
+        plot.background = element_rect(fill = "#d2b48c"),
+        axis.title.y.left = element_text(size = 6,
+                                         vjust = 0,
+                                         angle = 360,
+                                         face = "bold",
+                                         family = "Helvetica"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())+
+  scale_x_continuous(labels = c("1860" = "99%",
+                              "1870" = "92.1%",
+                              "1880" = "81.6%",
+                              "1890" = "67.2%",
+                              "1900" = "(50%?)"))+
+  scale_y_continuous(breaks = c(99, 92, 81, 67, 50),
+                     labels = c("99" = "1860",
+                                "92" = "1870",
+                                "81" = "1880",
+                                "67" = "1890",
+                                "50" = "(1900?)"))
 
 ```
 
