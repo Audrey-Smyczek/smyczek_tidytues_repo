@@ -30,7 +30,6 @@ illiteracy <- readr::read_csv("https://raw.githubusercontent.com/ajstarks/dubois
 
 
 ```{r}
-
 white_line <- tibble(Date = c(seq(1860, 1900, 10), seq(1860, 1890, 10), seq(1860, 1880, 10), seq(1860, 1870, 10)), 
                      `Iliteracy Rate` = c(rep(50, 5), rep(67.2, 4), rep(81.6, 3), rep(92.1, 2)))
 
